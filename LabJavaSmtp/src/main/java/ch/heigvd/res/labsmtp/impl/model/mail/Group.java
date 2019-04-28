@@ -9,4 +9,13 @@ package ch.heigvd.res.labsmtp.impl.model.mail;
  */
 public class Group {
 
+    private final List<Person> member = new ArrayList<>();
+    public void addMember(Person person){
+        member.add(person);
+    }
+
+    public List<Person>getMember(){
+        return new ArrayList<>(member);
+    }
+
 }
