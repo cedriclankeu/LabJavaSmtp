@@ -7,55 +7,51 @@ package ch.heigvd.res.labsmtp.impl.model.mail;
  * @auteur cedric Lankeu , Olivier Djelezeck
  */
 public class Message {
-
-    private String from;
-    private String subject;
+    private Person from;
+    private Person to;
     private String body;
-    private String[] to = new String[0];
-    private  String[] cc = new String[0];
-    private String[]bcc = new String[0];
 
-    public void setFrom(String from){
-        this.from=from;
+    /**
+     * Cette methode permet de definir un meme template pour tout message envoyé
+     *
+     * @param message message tiré au hazard et qui etait contenu dans le fichier "messages.utf8"
+     * @param return  the message template
+     */
+    private String messageTemplate(String message) {
+        StringBuilder strBuilder = new StringBuilder();
+        strBuilder.append("From: ");
+        strBuilder.append(from.getAddresse() + "\r\n" + "Content-Type: text/plain; charset=\"UTF-8\"" + "\r\n");
+        strBuilder.append("To: ");
+        strBuilder.append(to.getAddresse() + "\r\n");
+
+        strBuilder.append(message);
+        return strBuilder.toString();
     }
 
-    public String getFrom(){
-        return from;
+    /**
+     * Constructeur
+     *
+     * @param from    : l'emetteur
+     * @param to      : les victimes
+     * @param message le message a envoyer au victimes
+     */
+    public Message(Person from, Person to, String message) {
+        this.from = from;
+        this.to = to;
+        body = messageTemplate(message);
     }
 
-    public void setSubject(String subject){
-        this.subject = subject;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setBody(String body){
-        this.body = body;
-    }
-    public String getBody(){
+    public String getBody() {
         return body;
     }
 
-    public void setTo(String[] to){
-        this.to = to;
-    }
-    public String[] getTo(){
+
+    public Person getTo() {
         return to;
     }
-    public void setBcc(String[] bcc){
-        this.bcc = bcc;
-    }
-    public String[] getBcc(){
-        return bcc;
-    }
-    public void setCc(String[] cc){
-        this.cc = cc;
-    }
-    public String[] getCc(){
-        return cc;
-    }
 
+    public Person getFrom() {
+        return from;
+    }
 
 }
