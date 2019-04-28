@@ -38,6 +38,18 @@ public class ConfigManager implements IConfigManager {
      * @param fileName fichier properties du dossier config
      */
     private void loadProperties(String fileName) {
+        FileInputStream fis = new FileInputStream(fileName);
+        Properties properties = new Properties();
+        properties.load(fis);
+        this.smtpServerAdress = properties.getProperty("smtpServerAdress");
+        this.smtpServerPort = Integer.parseInt(properties.getProperty("smtpServerPort"));
+        this.numberofGroups = Integer.parseInt(properties.getProperty("numberOfGroups"));
+        this.witnesstoCC = new ArrayList<>();
+        String witnesses = properties.getProperty("witnessestoCC");
+        String [] witnessesAdresses = witnesses.split(",");
+        for(String address : witnessesAdresses){
+            this.witnesstoCC.add(new Person(address));
+        }
 
     }
 
@@ -48,6 +60,22 @@ public class ConfigManager implements IConfigManager {
      * @param fileName nom du fichier qui contient ces adresses
      */
     private List<Person> loadAdressFromFile(String fileName) {
+        List<Person> result;
+        try (FileInputStream fis= new FileInputStream(fileName)){
+            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+            try (BufferedReader reader = new BufferedReader(isr)){
+                result = new ArrayList<>();
+                String address = reader.readLine();
+                while (address!=null){
+                    result.add(new Person(address));
+                    address = reader.readLine();
+                }
+
+            }
+
+
+        }
+        return result;
 
     }
 
@@ -57,6 +85,27 @@ public class ConfigManager implements IConfigManager {
      * @param fileName le nom du fichier qui contien le message
      */
     private List<String> loadMessagesFromFile(String fileName) throws IOException {
+
+        List<String> result;
+        try (FileInputStream fis = new FileInputStream(fileName)){
+            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+            try (BufferedReader reader = new BufferedReader(isr)){
+                result = new ArrayList<>();
+                String line = reader.readLine();
+                while (line != null){
+                    StringBuilder body = new StringBuilder();
+                    while ((line!=null)&&(!line.equals("=="))){
+                        body.append(line);
+                        body.append("\r\n");
+                        line= reader.readLine();
+                    }
+                    result.add(body.toString());
+                    line = reader.readLine();
+                }
+
+            }
+        }
+        return result;
 
     }
 
