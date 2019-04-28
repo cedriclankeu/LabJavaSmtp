@@ -29,9 +29,7 @@ public class ConfigManager implements IConfigManager {
      */
     public ConfigManager() throws IOException {
 
-        victim = loadAdressFromFile(".\\config\\victims.utf8");
-        message = loadMessagesFromFile(".\\config\\messages.utf8");
-        loadProperties(".\\config\\config.properties");
+
     }
 
     /**
@@ -40,34 +38,6 @@ public class ConfigManager implements IConfigManager {
      * @param fileName fichier properties du dossier config
      */
     private void loadProperties(String fileName) {
-
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(fileName);
-            Properties properties = new Properties();
-            properties.load(fis);
-
-            this.smtpServerAdress = properties.getProperty("smtpServerAdress");
-            this.smtpServerPort = Integer.parseInt(properties.getProperty("smtpServerPort"));
-            this.numberofGroups = Integer.parseInt(properties.getProperty("numberOfGroups"));
-
-            this.witnesstoCC = new ArrayList<>();
-            String witnesses = properties.getProperty("witnessestoCC");
-            String[] witnessesAdresses = witnesses.split(",");
-            for (String address : witnessesAdresses) {
-                this.witnesstoCC.add(new Person(address));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fis != null) {
-                try {
-                    fis.close();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        }
 
     }
 
@@ -79,33 +49,6 @@ public class ConfigManager implements IConfigManager {
      */
     private List<Person> loadAdressFromFile(String fileName) {
 
-        List<Person> result = new ArrayList<Person>();
-        FileInputStream fis = null;
-        try {
-
-            fis = new FileInputStream(fileName);
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(fis, "UTF-8"));
-
-            String victimRead;
-            while ((victimRead = reader.readLine()) != null) {
-                result.add(new Person(victimRead));
-            }
-
-            reader.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fis != null) {
-                try {
-                    fis.close();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        }
-        return result;
     }
 
     /**
@@ -115,36 +58,6 @@ public class ConfigManager implements IConfigManager {
      */
     private List<String> loadMessagesFromFile(String fileName) throws IOException {
 
-        List<String> result;
-        try (FileInputStream fis = new FileInputStream(fileName)) {
-
-            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
-
-            try (BufferedReader reader = new BufferedReader(isr)) {
-
-                result = new ArrayList<>();
-
-                String line = reader.readLine();
-
-                // Pour chaque ligne lu,
-                while (line != null) {
-
-                    StringBuilder body = new StringBuilder();
-
-                    // On recupere le message borné par le separateur "=="
-                    while ((line != null) && (!line.equals("=="))) {
-                        body.append(line);
-                        body.append("\r\n");
-                        line = reader.readLine();
-                    }
-
-                    result.add(body.toString());
-                    line = reader.readLine();
-                }
-
-            }
-        }
-        return result;
     }
 
     public List<Person> getVictim() {
