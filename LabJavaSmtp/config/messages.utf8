@@ -1,0 +1,32 @@
+Subject: Appendix D.  Scenarios
+
+This section presents complete scenarios of several types of SMTP
+sessions.  In the examples, "C:" indicates what is said by the SMTP
+client, and "S:" indicates what is said by the SMTP server.
+
+==
+Subject: Appendix C.  Source Routes
+
+Historically, the <reverse-path> was a reverse source routing list of
+hosts and a source mailbox.  The first host in the <reverse-path> was
+historically the host sending the MAIL command; today, source routes
+SHOULD NOT appear in the reverse-path.
+==
+Subject: Appendix A.  TCP Transport Service
+
+The TCP connection supports the transmission of 8-bit bytes.  The
+SMTP data is 7-bit ASCII characters.  Each character is transmitted
+as an 8-bit byte with the high-order bit cleared to zero.
+==
+Subject: Generating SMTP Commands from RFC 822 Header Fields
+
+It is recommended that the UA provide its initial ("submission
+client") MTA with an envelope separate from the message itself.
+However, if the envelope is not supplied, SMTP commands SHOULD be
+generated as follows
+==
+Subject: D.2.  Aborted SMTP Transaction Scenario
+
+S: 220 foo.com Simple Mail Transfer Service Ready
+C: EHLO bar.com
+S: 250-foo.com greets bar.com
