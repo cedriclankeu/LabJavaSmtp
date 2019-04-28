@@ -1,6 +1,6 @@
 package ch.heigvd.res.labsmtp.impl.config;
 
-
+import ch.heigvd.res.labsmtp.impl.model.mail.Person;
 
 
 import java.util.List;
