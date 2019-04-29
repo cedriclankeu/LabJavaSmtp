@@ -139,3 +139,26 @@ Une fois que vous avez configuré ces fichiers,  vous pouvez lancer  votre navig
 
 Ceci vous permettra de voir l'interface du serveur MockMock qui affiche tous les messages envoyés en precisant l'emetteur et les destinataires.
 
+
+
+### description de votre implémentation
+
+
+
+
+
+- UML
+
+
+
+
+
+- Exemple de dialogue
+
+
+
+
+
+
+
+- Resultat sur l'interface du Serveur
