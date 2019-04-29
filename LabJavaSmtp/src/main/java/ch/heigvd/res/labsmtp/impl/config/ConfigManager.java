@@ -29,9 +29,9 @@ public class ConfigManager implements IConfigManager {
      */
     public ConfigManager() throws IOException {
 
-        victim = loadAdressFromFile(".\\config\\victims.utf8");
-        message = loadMessagesFromFile(".\\config\\messages.utf8");
-        loadProperties(".\\config\\config.properties");
+        victim = loadAdressFromFile("./config/victims.utf8");
+        message = loadMessagesFromFile("./config/messages.utf8");
+        loadProperties("./config/config.properties");
     }
 
     /**
