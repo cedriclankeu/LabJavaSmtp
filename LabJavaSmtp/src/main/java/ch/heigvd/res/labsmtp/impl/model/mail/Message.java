@@ -15,7 +15,7 @@ public class Message {
      * Cette methode permet de definir un meme template pour tout message envoyé
      *
      * @param message message tiré au hazard et qui etait contenu dans le fichier "messages.utf8"
-     * @param
+     *
      */
     private String messageTemplate(String message) {
         StringBuilder strBuilder = new StringBuilder();

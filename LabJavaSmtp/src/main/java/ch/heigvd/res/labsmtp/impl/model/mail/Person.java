@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 /**
  * Class permettant de definir une personne(nom, prenom, adresse Mail)
  *
- * @auteur cedric Lankeu , Olivier Djelezeck
+ * @auteur cedric Lankeu , Olivier Djeulezeck
  */
 
 public class Person {

@@ -20,7 +20,10 @@ public class Application {
 
         LOG.info("Labo SMTP");
         ConfigManager confMan = new ConfigManager();
+
         PrankGenerator generator = new PrankGenerator(confMan);
+
+
 
         List<Prank> pranks = generator.generatorPranks();
 
