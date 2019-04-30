@@ -148,10 +148,8 @@ Le
 
 
 - UML
+
 [![img](https://github.com/cedriclankeu/LabJavaSmtp/blob/master/figure/Diagram1.png)
-
-
-
 
 
 - Exemple de dialogue
@@ -159,7 +157,8 @@ Le
 
 
 
-
-
-
 - Resultat sur l'interface du Serveur
+
+[![img](https://github.com/cedriclankeu/LabJavaSmtp/blob/master/figure/Screenshot%20from%202019-04-29%2018-59-43.png)
+
+
