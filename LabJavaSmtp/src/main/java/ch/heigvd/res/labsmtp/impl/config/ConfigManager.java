@@ -26,8 +26,6 @@ public class ConfigManager implements IConfigManager {
 
     /**
      * Constructeur
-     *
-     * @param
      */
     public ConfigManager() throws IOException {
 
@@ -75,7 +73,7 @@ public class ConfigManager implements IConfigManager {
 
 
     /**
-     * Cette methode recupere toute les adresses et les stock dans la variable result
+     * Cette methode recupere toute les adresses et les stock
      *
      * @param fileName nom du fichier qui contient ces adresses
      */

@@ -11,13 +11,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 
-/**
- * dans cette classe on definit le nombre de victime par groupe. dans chaque groupe on dans chaque groupe
- * on devais y avoir 1 expediteur et au moins deux destinataires
- * @auteur cedric Lankeu , Olivier Djelezeck
- */
-
-
 public class PrankGenerator {
 
     private ConfigManager confManager;
@@ -26,11 +19,6 @@ public class PrankGenerator {
     public PrankGenerator(ConfigManager confManager) {
         this.confManager = confManager;
     }
-
-
-    /**
-     * cette methode permet d'attribué à des groupes constitués des blagues
-     */
 
     public List<Prank> generatorPranks() {
 
@@ -53,14 +41,6 @@ public class PrankGenerator {
         }
         return pranks;
     }
-
-
-    /**
-     *
-     * @generateGroupe  cette methode permet de générer les groupes
-     * @param listVictims: il s'agit d'une liste de personne qui pourront recevoir des messages
-     * @param nbGroups: le nombre de groupe que l'utilisateur s'est fixé
-     */
 
     private List<Group> generateGroups(List<Person> listVictims, int nbGroups) {
 
