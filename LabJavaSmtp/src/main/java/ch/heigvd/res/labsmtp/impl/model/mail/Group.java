@@ -16,15 +16,17 @@ public class Group {
 
     /**
      * Constructeur
+     * apres construction du groupe on reccupère la premiere personne
+     * de la liste comme expéditeur des message et le reste comme des recepteurs
      *
      * @param victimes : liste de tous les personnée ciblée
      */
     public Group(List<Person> victimes) {
         to = new ArrayList<>();
 
-        this.from = victimes.get(0);
+        this.from = victimes.get(0); // on charge l'expediteur par la première personne de la liste
 
-        victimes.remove(0);
+        victimes.remove(0); //on charge les recepeteurs des messages par le reste de personne de la liste
         this.to.addAll(victimes);
     }
 
