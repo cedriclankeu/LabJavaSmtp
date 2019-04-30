@@ -7,13 +7,6 @@ import java.io.*;
 import java.net.Socket;
 import java.util.logging.Logger;
 
-
-/**
- * classe qui permet au client de communiqué avec le serveur
- *
- * @auteur cedric Lankeu , Olivier Djelezeck
- */
-
 public class SmtpClient implements iSmtpClient {
 
     private static final Logger LOG = Logger.getLogger(SmtpClient.class.getName());
@@ -21,17 +14,6 @@ public class SmtpClient implements iSmtpClient {
     private PrintWriter writer;
     private BufferedReader reader;
     private String line;
-
-    /**
-     * créer une connection avec le smtp server
-     * créer un input et outputstream psur la connection
-     * executer le protocol smtp 'EHLO local'
-     *
-     * @param smtpServerAdresse: adresse du serveur smtp
-     * @param smtpServerPort: port du serveur SMTP
-     *
-     *
-     */
 
     public SmtpClient(String smtpServerAdresse, int smtpServerPort) {
 
@@ -55,10 +37,6 @@ public class SmtpClient implements iSmtpClient {
 
         }
     }
-
-    /**
-     * methode qui permet la communication avec le serveur SMTP
-     */
 
     public void sendMessage(Message message) throws IOException {
 
@@ -86,9 +64,6 @@ public class SmtpClient implements iSmtpClient {
         reader.readLine();
     }
 
-    /**
-     * methode qui permet la deconnection avec le serveur SMTP
-     */
     public void disconnect() {
 
         writer.write("QUIT\r\n");
