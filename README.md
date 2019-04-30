@@ -143,18 +143,13 @@ Ceci vous permettra de voir l'interface du serveur MockMock qui affiche tous les
 
 ### description de votre implémentation
 
-Le
+
 
 
 
 - UML
 
 [![img](https://github.com/cedriclankeu/LabJavaSmtp/blob/master/figure/Diagram1.png)
-
-
-- Exemple de dialogue
-
-
 
 
 - Resultat sur l'interface du Serveur
