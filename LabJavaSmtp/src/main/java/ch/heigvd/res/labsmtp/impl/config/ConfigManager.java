@@ -46,7 +46,9 @@ public class ConfigManager implements IConfigManager {
         FileInputStream fis = null;
         try {
             fis = new FileInputStream(fileName);
+
             Properties properties = new Properties();
+
             properties.load(fis);
 
             this.smtpServerAdress = properties.getProperty("smtpServerAdress");
