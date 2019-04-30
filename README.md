@@ -10,7 +10,7 @@
 
 ### description
 
-Dans le cadre du laboratoire de RES sur SMTP, nous avons eu a implementer une application cliente smtp qui permet  à un user de lancer des campagnes de mail e-mails falsifiés à une liste de victimes.
+Dans le cadre du laboratoire de RES sur SMTP, nous avons eu a implementer une application cliente smtp qui permet  à un user de lancer des campagnes de e-mails falsifiés à une liste de victimes.
 Pour tester le bon fonctionnement de cette application, nous nous sommes servi d'un serveur fictif appelé MockMock server. Il permet de simuler l'envoi de mail reel d'un emetteur (peu etre fictif) à des destinataire(fictif ou reel) et visualiser ces courrier à travers une interface.
 
 Notre App contient trois fichiers : 
